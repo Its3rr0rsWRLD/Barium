@@ -18,7 +18,7 @@ https://github.com/Its3rr0rsWRLD/Barium/assets/92172873/23314512-6f9a-4cc2-8e96-
 1. Download the Simple Anti-Cheat.jar file from the Releases section.
 2. Drop the file into your `plugins` folder in your Spigot server directory.
 3. Restart your server.
-4. Edit the `config.yml` file generated in the `plugins/Simple Anti-Cheat` folder to customize settings.
+4. Edit the `config.yml` file generated in the `plugins/Barium` folder to customize settings.
 
 ## Usage
 
@@ -27,16 +27,6 @@ Once installed, the plugin will automatically monitor player actions for potenti
 ## Contributing
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
 
 # More Information
 
