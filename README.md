@@ -32,10 +32,12 @@ Contributions are what make the open-source community such an amazing place to l
 
 ## Freecam
 Q: What do you mean by freecam detection?
+
 A: If someone tries to use freecam or anything similar to (for example) mine a block that is not in their line of sight (LoS), Barium will detect and take action against the user
 
 ## Configurability
 Q: How configurable is it?
+
 A: Barium comes with a config.yml file that lets you configure different actions for different cheats, as well as some numbers that can change distance, speed, etc.
 
 ## Contact
