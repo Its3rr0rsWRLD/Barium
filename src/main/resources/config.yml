@@ -1,0 +1,26 @@
+configurable:
+  EntityCombat:
+    maxDistance: 5
+  BlinkMovement:
+    maxDistance: 10
+actions:
+  InventoryMovement:
+    - "sendMessage:Potential cheating: Inventory movement"
+    - "log:USER %player% CHEATED WITH INVENTORY MOVEMENT"
+    - "cancelEvent"
+  noLOS:
+    - "sendMessage:Potential cheating: No line of sight"
+    - "cancelEvent"
+    - "log:USER %player% CHEATED WITH NO LOS"
+  Reach:
+    - "sendMessage:Potential cheating: Reach"
+    - "cancelEvent"
+    - "log:USER %player% CHEATED WITH REACH"
+  EntityCombat:
+    - "sendMessage:Potential cheating: Entity combat"
+    - "cancelEvent"
+    - "log:USER %player% CHEATED WITH ENTITY COMBAT"
+  BlinkMovement:
+    - "sendMessage:Potential cheating: Movement"
+    - "cancelEvent"
+    - "log:USER %player% CHEATED WITH BLINK MOVEMENT"

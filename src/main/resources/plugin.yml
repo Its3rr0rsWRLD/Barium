@@ -1,0 +1,12 @@
+name: Barium
+version: '${version}'
+main: org.its3rr0rswrld.barium.Barium
+api-version: '1.20'
+
+resources:
+  - config.yml
+
+commands:
+  losdistance:
+    description: Set the LOS (line of sight) distance threshold
+    usage: /losdistance <distance>
