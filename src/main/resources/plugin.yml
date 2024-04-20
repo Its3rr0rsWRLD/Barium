@@ -7,6 +7,9 @@ resources:
   - config.yml
 
 commands:
-  losdistance:
-    description: Set the LOS (line of sight) distance threshold
-    usage: /losdistance <distance>
+    bDebug:
+        description: Debug command
+        permission: barium.debug
+        aliases:
+            - bd
+        permission-message: '&cYou do not have permission to use this command.'

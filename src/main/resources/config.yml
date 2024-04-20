@@ -8,10 +8,10 @@ actions:
     - "sendMessage:Potential cheating: Inventory movement"
     - "log:USER %player% CHEATED WITH INVENTORY MOVEMENT"
     - "cancelEvent"
-  noLOS:
+  noLoS:
     - "sendMessage:Potential cheating: No line of sight"
     - "cancelEvent"
-    - "log:USER %player% CHEATED WITH NO LOS"
+    - "log:USER %player% CHEATED WITH NO LoS"
   Reach:
     - "sendMessage:Potential cheating: Reach"
     - "cancelEvent"
@@ -24,3 +24,5 @@ actions:
     - "sendMessage:Potential cheating: Movement"
     - "cancelEvent"
     - "log:USER %player% CHEATED WITH BLINK MOVEMENT"
+settings:
+  debug: true

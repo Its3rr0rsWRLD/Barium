@@ -16,10 +16,21 @@ import java.util.List;
 
 public final class Barium extends JavaPlugin implements Listener {
     private static Barium instance;
+    public static boolean cfgDebug;
+
+    public static void updateDebugSetting() {
+        cfgDebug = instance.getConfig().getBoolean("settings.debug", false);
+    }
 
     @Override
     public void onEnable() {
         instance = this;  // Set the static instance reference
+
+        this.saveDefaultConfig();
+        this.reloadConfig();
+
+        updateDebugSetting();
+
         getLogger().info("Plugin enabled!");
         getServer().getPluginManager().registerEvents(this, this);
 
@@ -36,6 +47,8 @@ public final class Barium extends JavaPlugin implements Listener {
 
         EntityCombat entityCombat = new EntityCombat(this);
         getServer().getPluginManager().registerEvents(entityCombat, this);
+
+        new Commands(this);
     }
 
     @Override
@@ -114,6 +127,13 @@ public final class Barium extends JavaPlugin implements Listener {
             } else {
                 instance.getLogger().warning("Misconfigured action for caller: " + caller);
             }
+        }
+    }
+
+    public static void debug(Player player, String msg) {
+        if (cfgDebug) {
+            instance.getLogger().info("[Barium Debug] Triggered by player " + player.getName() + " ; " + msg);
+            player.sendMessage("[Barium Debug]: " +  msg);
         }
     }
 

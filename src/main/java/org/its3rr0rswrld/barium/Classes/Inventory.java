@@ -19,7 +19,7 @@ public class Inventory implements Listener {
     public void onInventoryClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
         if (movement.isPlayerMoving(player)) {
-            getLogger().info("[Barium] Calling runDetection from Inventory");
+            Barium.debug(player, " Calling runDetection from Inventory");
             Barium.runDetection(player, "InventoryMovement", event);
         }
     }
