@@ -1,28 +1,54 @@
-configurable:
-  EntityCombat:
-    maxDistance: 5
-  BlinkMovement:
-    maxDistance: 10
+EntityCombat:
+  enabled: false
+  maxDistance: 5
+EntityReach:
+  enabled: true
+  maxDistance: 4.25
+BlinkMovement:
+  enabled: false
+  maxDistance: 10
+Reach:
+  enabled: true
+  maxDistance: 5 # Recommended value: 5
+BlockInteractions:
+  enabled: false
+  LoSBuffer: 1.5 # Recommended value:
+  LoSBufferTime: 250 # Recommended value: BROKEN
+InventoryMovement: # Inventory Movement is not considered cheating anymore
+  enabled: false
+
 actions:
   InventoryMovement:
-    - "sendMessage:Potential cheating: Inventory movement"
-    - "log:USER %player% CHEATED WITH INVENTORY MOVEMENT"
-    - "cancelEvent"
+    #- "sendWebhook:Potential cheating: Inventory movement"
+    #- "log:USER %player% CHEATED WITH INVENTORY MOVEMENT"
+    #- "cancelEvent"
   noLoS:
-    - "sendMessage:Potential cheating: No line of sight"
-    - "cancelEvent"
-    - "log:USER %player% CHEATED WITH NO LoS"
+    #- "sendWebhook:Potential cheating: No line of sight"
+    #- "cancelEvent"
+    #- "log:USER %player% CHEATED WITH NO LoS"
   Reach:
-    - "sendMessage:Potential cheating: Reach"
-    - "cancelEvent"
-    - "log:USER %player% CHEATED WITH REACH"
+    - "sendWebhook:Player %player% has triggered Reach event"
+    #- "cancelEvent"
+    #- "log:USER %player% CHEATED WITH REACH"
   EntityCombat:
-    - "sendMessage:Potential cheating: Entity combat"
-    - "cancelEvent"
-    - "log:USER %player% CHEATED WITH ENTITY COMBAT"
+    #- "sendWebhook:Potential cheating: Entity combat"
+    #- "cancelEvent"
+    #- "log:USER %player% CHEATED WITH ENTITY COMBAT"
   BlinkMovement:
-    - "sendMessage:Potential cheating: Movement"
-    - "cancelEvent"
-    - "log:USER %player% CHEATED WITH BLINK MOVEMENT"
+    #- "sendWebhook:Potential cheating: Movement"
+    #- "cancelEvent"
+    #- "log:USER %player% CHEATED WITH BLINK MOVEMENT"
+  EntityReach:
+    - "sendWebhook:Player %player% has triggered EntityReach event"
+    #- "cancelEvent"
+    #- "log:USER %player% CHEATED WITH ENTITY REACH"
+
 settings:
-  debug: true
+  SendMessage:
+    toOPs: false
+    toOffender: false
+  Debug:
+    enabled: true
+    SendWebhook: false
+    toConsole: true
+  Webhook: ""

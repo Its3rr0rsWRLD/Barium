@@ -27,8 +27,8 @@ public class Commands implements CommandExecutor {
 
             if (args.length == 0) {
                 /* Toggle the debug mode */
-                boolean currentDebug = plugin.getConfig().getBoolean("settings.debug", false);
-                plugin.getConfig().set("settings.debug", !currentDebug);
+                boolean currentDebug = plugin.getConfig().getBoolean("settings.Debug", false);
+                plugin.getConfig().set("settings.Debug", !currentDebug);
                 plugin.saveConfig();
                 plugin.reloadConfig();
                 Barium.updateDebugSetting();

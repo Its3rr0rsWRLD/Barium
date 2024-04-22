@@ -16,13 +16,17 @@ import java.util.UUID;
 
 public class Movement implements Listener {
     private final HashMap<UUID, Long> lastMoveTime = new HashMap<>();
+    public static final HashMap<UUID, HashMap<Long, Location>> playerLocations = new HashMap<>();
+    double LoSBufferTime;
     private Barium barium;
 
 
     public Movement(Barium plugin) {
+        this.barium = plugin;
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
 
-        int blinkMaxDistance = plugin.getConfig().getInt("configurable.BlinkMovement.maxDistance", 10);
+        int blinkMaxDistance = plugin.getConfig().getInt("BlinkMovement.maxDistance", 10);
+        LoSBufferTime = barium.getConfig().getDouble("BlockInteractions.LoSBufferTime", 250);
     }
 
     public boolean isPlayerMoving(Player player) {
@@ -45,6 +49,12 @@ public class Movement implements Listener {
     public void onPlayerMove(PlayerMoveEvent event) {
         Player player = event.getPlayer();
         UUID playerId = player.getUniqueId();
+        Location location = player.getLocation();
+
+        HashMap<Long, Location> locationHistory = playerLocations.getOrDefault(player.getUniqueId(), new HashMap<>());
+        locationHistory.put(System.currentTimeMillis(), location);
+        locationHistory.entrySet().removeIf(entry -> entry.getKey() < System.currentTimeMillis() - 2 * LoSBufferTime);
+        playerLocations.put(player.getUniqueId(), locationHistory);
 
         Location from = event.getFrom();
         Location to = event.getTo();

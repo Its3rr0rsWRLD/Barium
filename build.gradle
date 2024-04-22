@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'org.its3rr0rswrld'
-version = '1.0.1'
+version = '1.0.2.1'
 
 repositories {
     mavenCentral()
@@ -44,10 +44,31 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 task runSpigot(type: Exec, dependsOn: 'build') {
-    workingDir = file('build/libs') // Assuming the Spigot server jar is located in the 'build/libs' directory relative to your project
-    commandLine 'java', '-Xms400M', '-Xmx600M', '-jar', 'spigot-1.20.4.jar'//, '-nogui'
-}
+    workingDir = file('build/libs') // Sets the working directory to 'build/libs'
+    doFirst {
+        // Logging the directory being checked
+        println "Checking directory: ${file('plugins').absolutePath}"
 
+        // Finds and deletes any JAR files starting with 'Barium' in the plugins directory
+        def jars = file('plugins').listFiles().findAll {
+            it.name.startsWith('Barium') && it.name.endsWith('.jar')
+        }
+        println "Deleting JAR files: ${jars*.name}"
+        jars.each { it.delete() }
+
+        // Checks and deletes the directory named 'Barium'
+        def bariumDir = file('build/libs/plugins/Barium')
+        if (bariumDir.exists()) {
+            println "Deleting directory: ${bariumDir.absolutePath}"
+            delete bariumDir
+        } else {
+            println "Directory not found: ${bariumDir.absolutePath}"
+        }
+    }
+
+    // Defines the command to launch Spigot with specified memory limits and without the GUI
+    commandLine 'java', '-Xms400M', '-Xmx600M', '-jar', 'spigot-1.20.4.jar' //, '-nogui'
+}
 
 processResources {
     def props = [version: version]
