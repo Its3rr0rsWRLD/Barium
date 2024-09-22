@@ -1,5 +1,7 @@
 # Barium
 
+> :warning: This is an old repo! You may have to update some things, and this doesn't account for lag ***at all***
+
 Barium is a simple anti-cheat for Minecraft. I just made it because I was bored :3
 
 ## Features
