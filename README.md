@@ -10,9 +10,12 @@ Barium is a simple anti-cheat for Minecraft. I just made it because I was bored 
 - **Alert System** - Alerts admins when potential cheating behavior is detected.
 - **Configurable** - Fully configurable settings to adjust the sensitivity and actions taken.
 
+<div align="center">
+  <img src="./github/assets/features.png" alt="Features" />
+</div>
+
 ## Showcase
 https://github.com/Its3rr0rsWRLD/Barium/assets/92172873/23314512-6f9a-4cc2-8e96-72e96abc986c
-
 
 
 ## Installation
@@ -21,6 +24,10 @@ https://github.com/Its3rr0rsWRLD/Barium/assets/92172873/23314512-6f9a-4cc2-8e96-
 2. Drop the file into your `plugins` folder in your Spigot server directory.
 3. Restart your server.
 4. Edit the `config.yml` file generated in the `plugins/Barium` folder to customize settings.
+
+<div align="center">
+  <img src="./github/assets/installation.png" alt="Installation" />
+</div>
 
 ## Usage
 
@@ -36,6 +43,10 @@ Contributions are what make the open-source community such an amazing place to l
 Q: What do you mean by freecam detection?
 
 A: If someone tries to use freecam or anything similar to (for example) mine a block that is not in their line of sight (LoS), Barium will detect and take action against the user
+
+<div align="center">
+  <img src="./github/assets/freecam.png" alt="Freecam" />
+</div>
 
 ## Configurability
 Q: How configurable is it?
